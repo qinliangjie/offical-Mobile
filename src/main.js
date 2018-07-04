@@ -9,6 +9,11 @@ import VueI18n from 'vue-i18n'
 
 import {getCookie} from './assets/js/cookie'
 import '../static/css/index.css'
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
 import 'lib-flexible'
 import 'babel-polyfill'
 Vue.config.productionTip = false
@@ -19,13 +24,13 @@ Vue.config.debug = process.env.NODE_ENV !== 'production'
 Vue.config.productionTip = false
 
 /* axios配置 */
-axios.defaults.withCredentials = true
+//axios.defaults.withCredentials = true
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.$axios = axios
 
 var querystring = require('querystring');
 
-var baseUrl = "http://192.168.2.228/qygwaa/public"
+var baseUrl = "https://www.iclockwork.com"
 
 /* 
  * 封装ajax

@@ -1,12 +1,18 @@
 <template>
   <div class="index" >
     <div class="banner_wrap">
-      <div  class="swiper-container gallery-top swiper-container-horizontal">  
+      <!-- <div  class="swiper-container gallery-top swiper-container-horizontal">  
         <div class="swiper-wrapper">  
            <div v-for="value in lbt" class="swiper-slide swiper-slide-next" style="width: 100%; margin-right: 10px;background-size:100% 100%" v-bind:style="{backgroundImage: 'url(' + value.images + ')'}"></div>  
         </div> 
         <div class="swiper-pagination"></div>  
-      </div>   
+      </div>   --> 
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="value in lbt">
+          <img :src="value.images" />
+        </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
     </div>
     <div class="content_item">
       <p class="item_title">{{$t('m.home.about')}} <i class="count_down"></i></p>
@@ -16,7 +22,7 @@
       <img class="proImg" v-if="indimg.length>0" v-bind:src="indimg[0].images"/>
     </div>
     <div class="content_item mt0">
-      <p class="item_title">{{$t('m.home.about')}} <i class="count_down"></i></p>
+      <p class="item_title">{{$t('m.home.pr')}} <i class="count_down"></i></p>
       <img class="newImg" v-if="newimg.length>0" v-bind:src="newimg[0].images"/>
       <div class="company_new">
         <ul class="newsul" >
@@ -31,11 +37,29 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
-import 'swiper/dist/css/swiper.min.css'
+//import Swiper from 'swiper'
+//import 'swiper/dist/css/swiper.min.css'
+import 'swiper/dist/css/swiper.css' 
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+  components: {
+    swiper,
+    swiperSlide
+  },
   data () {
     return {
+      swiperOption: {
+        pagination:{
+          el:'.swiper-pagination'
+        },
+        slidesPerView:1,
+        autoplay:{
+          delay:1000,
+          disableOnInteraction:false
+        },
+        spaceBetween:30,
+        loop:true
+      },
       msg: '苏州爱洛克信息技术有限公司成立于2012年，注册资本1051万。公司总部位于苏州市工业园区，分别在台湾新北、曼谷舍友驻地分公司，创始团队均来自Activision Blizzard等知名游戏公司，平均从业10年以上，有丰富的AAA级游戏制作经验和发行经验。团队曾在中国及全球AppStore, GooglePlay Store成功发行过多款Top 10游戏。',
       notic:[],
       lbt: [  
@@ -46,7 +70,7 @@ export default {
     }
   },
   mounted:function(){
-    this.lunbo();
+    //this.lunbo();
     this.markPost(this.$i18n.locale)
   },
   updated:function(){
@@ -114,11 +138,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 .index{
-  background-color: #e6e6e6
+  background-color: #e6e6e6;
+      display: table-cell;
 }
 .banner_wrap,.swiper-container{
   width:750px;
   height: 760px
+}
+.banner_wrap,.swiper-container img{
+  width: 100%;
+  height: 100%
 }
 .content_item{
   width: 690px;
@@ -130,7 +159,7 @@ export default {
 }
 .mt0{
   margin-top: 0;
-  margin-bottom: 0px
+  margin-bottom: 20px
 }
 .count_down{
     display: block;
@@ -159,8 +188,26 @@ export default {
   line-height: 46px;
   text-align: left;
 }
+.company_new{
+  margin: 30px;
+  margin-bottom: 0px
+}
 .newsul{
-  
+  height: 260px;
+  overflow: hidden;
+  padding-bottom: 30px
+}
+.newsul li{
+  font-size: 28px;
+  color: #333;
+  line-height: 48px
+}
+.newsul li span:first-child{
+  max-width: 70%;
+}
+.newsul li .fr{
+  font-size: 26px;
+  color: #999
 }
 .proImg{
   width: 631px;
