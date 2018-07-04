@@ -19,7 +19,12 @@
       <p class="item_title">{{$t('m.home.about')}} <i class="count_down"></i></p>
       <img class="newImg" v-if="newimg.length>0" v-bind:src="newimg[0].images"/>
       <div class="company_new">
-        
+        <ul class="newsul" >
+            <li  v-for="(item,index) in notic" :key="item.id" v-on:click="gotonew(item.id)">
+              <span class="fl ellipsis-one">{{item.message_title}}</span><span class="fr">{{item.uptime}}</span>
+              <div class="clear"></div>
+            </li>
+          </ul>
       </div>
     </div>
   </div>
@@ -154,7 +159,9 @@ export default {
   line-height: 46px;
   text-align: left;
 }
-
+.newsul{
+  
+}
 .proImg{
   width: 631px;
   height: 361px;
