@@ -1,12 +1,7 @@
 <template>
   <div class="index" >
     <div class="banner_wrap">
-      <!-- <div  class="swiper-container gallery-top swiper-container-horizontal">  
-        <div class="swiper-wrapper">  
-           <div v-for="value in lbt" class="swiper-slide swiper-slide-next" style="width: 100%; margin-right: 10px;background-size:100% 100%" v-bind:style="{backgroundImage: 'url(' + value.images + ')'}"></div>  
-        </div> 
-        <div class="swiper-pagination"></div>  
-      </div>   --> 
+      
       <swiper :options="swiperOption">
         <swiper-slide v-for="value in lbt">
           <img :src="value.images" />
@@ -37,8 +32,6 @@
 </template>
 
 <script>
-//import Swiper from 'swiper'
-//import 'swiper/dist/css/swiper.min.css'
 import 'swiper/dist/css/swiper.css' 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
@@ -60,7 +53,7 @@ export default {
         spaceBetween:30,
         loop:true
       },
-      msg: '苏州爱洛克信息技术有限公司成立于2012年，注册资本1051万。公司总部位于苏州市工业园区，分别在台湾新北、曼谷舍友驻地分公司，创始团队均来自Activision Blizzard等知名游戏公司，平均从业10年以上，有丰富的AAA级游戏制作经验和发行经验。团队曾在中国及全球AppStore, GooglePlay Store成功发行过多款Top 10游戏。',
+      msg: '',
       notic:[],
       lbt: [  
       ],
@@ -140,6 +133,8 @@ export default {
 .index{
   background-color: #e6e6e6;
       display: table-cell;
+      margin: 0rem 0.4rem 0 0.4rem;
+    padding-top: 170px;
 }
 .banner_wrap,.swiper-container{
   width:750px;
@@ -190,7 +185,8 @@ export default {
 }
 .company_new{
   margin: 30px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
+  height: 300px
 }
 .newsul{
   height: 260px;

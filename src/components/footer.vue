@@ -49,8 +49,6 @@ export default {
       if (scrollTop > 200) {
         this.isShow = true
         
-      } else if (scrollTop < 200) {
-        this.isShow = false
       }
     },
     getTop () {

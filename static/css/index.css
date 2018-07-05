@@ -142,3 +142,7 @@ a:visited {
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
   bottom: 0.8rem
 }
+.stButton .stLarge{
+  width:0.587rem;
+  height: 0.587rem
+}

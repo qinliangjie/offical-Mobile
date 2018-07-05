@@ -49,6 +49,12 @@ body{
 a:active, a:hover, a:link, a:visited {
     outline: 0;
 }
+.head_wrap{
+        position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 999
+}
 .head_con{
     width: 100%;
 }

@@ -5,7 +5,8 @@ import Company from '@/components/company'
 import Corporate from '@/components/corporate'
 import Products from '@/components/products'
 import Joinus from '@/components/joinus'
-
+import Companymy from '@/components/company/mycompany'
+import Newdetail from '@/components/company/newdetail'
 Vue.use(Router)
 
 export default new Router({
@@ -27,7 +28,23 @@ export default new Router({
     {
       path: '/company',
       name: '公司信息',
-      component: Company
+      component: Company,
+      children:[{
+        path:'/',
+        redirect: {
+          name:'公司信息'
+        }
+        //name:'schoolLevel',
+        //component:SchoolLevel,
+      },{
+        path: '/company/mycompany',
+        name: '公司信息',
+        component: Companymy
+      },{
+        path: '/company/newdetail',
+        name: '新闻详情',
+        component: Newdetail
+      }]
     },
     {
       path: '/corporate',
